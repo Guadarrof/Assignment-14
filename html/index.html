@@ -20,7 +20,7 @@
                 <p class="form__p" id="surnameError"></p>
             </div>
             <div class="form_group group-id">
-                <div class="form_div-id">
+                <div class="form_div form_div-idType">
                     <legend class="form_legend">Tipo de documento</legend>
                     <input class="form__radio" type="radio" id="dniInput" name="id">
                     <label for="dniInput" class="form__label">DNI</label>
@@ -28,10 +28,12 @@
                     <label for="cuilInput" class="form__label">CUIL</label>
                     <p class="form__p" id="idError"></p>
                 </div>
+                <div class="form_div form_div-idNum">
                     <label class="form__label" for="idNumInput">Nro de documento</label>
                     <input class="form__input" type="number" id="idNumInput">
-                    <p class="form__p" id="idNumError"></p>    
-                </div>
+                    <p class="form__p" id="idNumError"></p>
+                </div>    
+            </div>
             <div class="form_group">
                 <label class="form__label" for="addressInput">Direccion</label>
                 <input class="form__input" type="text" id="addressInput" placeholder="Direccion">

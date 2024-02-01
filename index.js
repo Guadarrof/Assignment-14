@@ -11,7 +11,6 @@ const nameError=document.getElementById("nameError");
 const surnameError=document.getElementById("surnameError");
 const nroIdError=document.getElementById("idNumError");
 const addressError=document.getElementById("addressError");
-
 //Buttons
 
 const submitBtn=document.getElementById("submitForm")
@@ -110,22 +109,34 @@ function validDni(){
     }
 }
 
+function contarGuiones(string) {
+    var contador = 0;
+    for (var i = 0; i < string.length; i++) {
+        if (string[i] === '-') {
+            contador++;
+        }
+    }
+    return contador;
+}
+
 function validCuil(){
     nroIdError.innerText="";
     let idValue=nroId.value;
     let regEx= new RegExp(/^[0-9-]+$/);
     let validCuil= regEx.test(idValue);
-    if(!validCuil){
+    if(!validCuil){        
         nroIdError.innerText="Este campo solo acepta numeros con o sin guiones";
     }else if(idValue.includes("-")){
-        if(!(idValue.substring(2, 3).includes("-") && idValue.substring(11, 12).includes("-"))){
-            nroIdError.innerText="El formato con guion permite solo que se coloque uno despues de los primeros dos y antes del ultimo numero (xx-xxxxxxxx-x))";
-        }else if((idValue.substring(2, 3).includes("-") && !idValue.substring(11, 12).includes("-")) || (!idValue.substring(2, 3).includes("-") && idValue.substring(10, 11).includes("-"))){
-            nroIdError.innerText="El formato Cuil permite solo que se coloquen ambos guiones o ninguno (xx-xxxxxxxx-x))";  
-        }else if(idValue.length>13){
-            nroIdError.innerText="Este campo requiere 11 numeros";
+        if(idValue.length!==13){
+            nroIdError.innerText="El formato Cuil permite solo 11 números y 2 guiones (xx-xxxxxxxx-x)";  
         }
-    }else if(idValue.length<11 || idValue.length>11){
+        else if(contarGuiones(idValue)!=2){
+            nroIdError.innerText="El formato Cuil permite solo que se coloquen ambos guiones o ninguno (xx-xxxxxxxx-x)";  
+        }
+        else if(!(idValue.substring(2, 3).includes("-") && idValue.substring(11, 12).includes("-"))){
+            nroIdError.innerText="El formato con guion permite solo que se coloque uno despues de los primeros dos y antes del ultimo numero (xx-xxxxxxxx-x)";
+        }
+    }else if(idValue.length!=11){
         nroIdError.innerText="Este campo requiere 11 numeros";
     }
 }

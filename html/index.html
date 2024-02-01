@@ -1,46 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../form.css">
     <title>Formulario</title>
 </head>
+
 <body>
-    <div class="form">
-        <form action="">
+    <form action="">
+        <div class="name_container">
             <div class="form_group">
-                <label class="form__label" for="nameInput">Primer Nombre</label>
-                <input class="form__input" type="text" id="nameInput" placeholder="Primer Nombre">
-                <p class="form__p" id="nameError"></p>    
+                <div class="form_name">
+                    <label class="form__label" for="nameInput">Primer Nombre</label>
+                    <input class="form__input" type="text" id="nameInput" placeholder="Primer Nombre">
+                </div>
+                <div class="error_container">
+                    <p class="form__p" id="nameError"></p>
+                </div>
             </div>
             <div class="form_group">
-                <label class="form__label" for="surnameInput">Apellido</label>
-                <input class="form__input" type="text" id="surnameInput" placeholder="Apellido">
-                <p class="form__p" id="surnameError"></p>
+                <div class="form_surname">
+                    <label class="form__label" for="surnameInput">Apellido</label>
+                    <input class="form__input" type="text" id="surnameInput" placeholder="Apellido">
+                </div>
+                <div class="error_container">
+                    <p class="form__p" id="surnameError"></p>
+                </div>
             </div>
+        </div>
+        </div>
+        <div class="id_container">
             <div class="form_group group-id">
                 <div class="form_div form_div-idType">
                     <legend class="form_legend">Tipo de documento</legend>
-                    <input class="form__radio" type="radio" id="dniInput" name="id">
-                    <label for="dniInput" class="form__label">DNI</label>
-                    <input class="form__radio" type="radio" id="cuilInput" name="id">
-                    <label for="cuilInput" class="form__label">CUIL</label>
+                    <div class="dni_group">
+                        <input class="form__radio" type="radio" id="dniInput" name="id">
+                        <label for="dniInput" class="form__label" id="dniLabel">DNI</label>
+                    </div>
+                    <div class="cuit_group">
+                        <input class="form__radio" type="radio" id="cuilInput" name="id">
+                        <label for="cuilInput" class="form__label" id="cuilLabel">CUIL</label>
+                    </div>
                 </div>
+            </div>
+            <div class="form_group group-idNum">
                 <div class="form_div form_div-idNum">
                     <label class="form__label" for="idNumInput">Nro de documento</label>
                     <input class="form__input" type="text" id="idNumInput">
+                </div>
+                <div class="error_container">
                     <p class="form__p" id="idNumError"></p>
-                </div>    
+                </div>
             </div>
-            <div class="form_group">
+        </div>
+        </div>
+        <div class="form_group">
+            <div class="group-address">
                 <label class="form__label" for="addressInput">Direccion</label>
                 <input class="form__input" type="text" id="addressInput" placeholder="Direccion">
-                <p class="form__p" id="addressError"></p>    
             </div>
-            <button type="submit" id="submitForm">Submit</button>
-        </form>
-    </div>
+            <div class="error_container">
+                <p class="form__p" id="addressError"></p>
+            </div>
+        </div>
+        <button type="submit" id="submitForm">Submit</button>
+    </form>
     <script src="../index.js"></script>
 </body>
+
 </html>
